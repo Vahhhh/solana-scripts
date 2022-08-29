@@ -12,13 +12,13 @@ echo "###   *** Script provided by MARGUS.ONE                           ###"
 echo "#####################################################################"
 echo
 
-NODE_NAME=$(grep -oP '^.*?hostname = "\K[^"]*' /etc/telegraf/telegraf.conf) || NODE_NAME="node-testnet"
+NODE_NAME=""
 RM_LEDGER="1"                       # delete ledger (1 = YES; 0 = NO)
 FINDER="1"                          # delete local snapsot and download new with snapshot-finder (1 = YES; 0 = NO, use local snapshot) not working if RM_LEDGER="0"
 LEDGER="/root/solana/ledger"        # path to ledger (default: /root/solana/ledger)
 SNAPSHOTS="/root/solana/ledger"  # path to snapshots (default: /root/solana/ledger)
 BEHIND="2000"                       # enter the value of the slots, if the node is behind, it will restart
-NETWORK=$(grep -oP '^.*?cluster_environment="\K[^"]*' /root/solana/monitoring/monitoring_config.py) || NETWORK="testnet"
+NETWORK=""
 RPC_URL="https://api.${NETWORK}.solana.com"
 
 ICON=`echo -e '\U0001F514'`
