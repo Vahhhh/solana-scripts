@@ -13,7 +13,7 @@ echo "#####################################################################"
 echo
 
 #NODE_NAME="mynode-testnet"          # Node name
-NODE_NAME=$(grep -oP '^.*?hostname = "\K[^"]*' /etc/telegraf/telegraf.conf)
+NODE_NAME=$(grep -oP '^.*?hostname = "\K[^"]*' /etc/telegraf/telegraf.conf) || NODE_NAME="node-testnet"
 FINDER="0"                          # delete local snapsot and download new with snapshot-finder (1 = YES; 0 = NO, use local snapshot)
 LEDGER="/root/solana/ledger"        # path to ledger (default: /root/solana/ledger)
 SNAPSHOTS="/root/solana/ledger"  # path to snapshots (default: /root/solana/ledger)
