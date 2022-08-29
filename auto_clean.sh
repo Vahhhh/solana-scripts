@@ -23,8 +23,8 @@ FREE_SPACE="500"                    # enter your value in MB for cleaning ledger
 ICON=`echo -e '\U0001F514'`
 PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
 send_message() {
-#telegram_bot_token=""               # enter your telegram bot token from botfather
-#telegram_chat_id=""                 # enter your telegram id or chat id
+telegram_bot_token=""
+telegram_chat_id=""
 Title="$1"
 Message="$2"
 curl -s \
