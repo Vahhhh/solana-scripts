@@ -12,18 +12,19 @@ echo "###   *** Script provided by MARGUS.ONE                           ###"
 echo "#####################################################################"
 echo
 
-NODE_NAME="mynode-testnet"          # Node name 
+#NODE_NAME="mynode-testnet"          # Node name
+NODE_NAME=$(grep -oP '^.*?hostname = "\K[^"]*' /etc/telegraf/telegraf.conf)
 FINDER="0"                          # delete local snapsot and download new with snapshot-finder (1 = YES; 0 = NO, use local snapshot)
 LEDGER="/root/solana/ledger"        # path to ledger (default: /root/solana/ledger)
-SNAPSHOTS="/root/solana/snapshots"  # path to snapshots (default: /root/solana/ledger)
-FREE_SPACE="100"                    # enter your value in MB for cleaning ledger and restart solana
+SNAPSHOTS="/root/solana/ledger"  # path to snapshots (default: /root/solana/ledger)
+FREE_SPACE="500"                    # enter your value in MB for cleaning ledger and restart solana
 
 
 ICON=`echo -e '\U0001F514'`
 PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
 send_message() {
-telegram_bot_token=""               # enter your telegram bot token from botfather
-telegram_chat_id=""                 # enter your telegram id or chat id
+#telegram_bot_token=""               # enter your telegram bot token from botfather
+#telegram_chat_id=""                 # enter your telegram id or chat id
 Title="$1"
 Message="$2"
 curl -s \
